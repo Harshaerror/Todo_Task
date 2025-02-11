@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '17'  # Specify the version of Java your project uses, e.g., 11 or 8
-        distribution: 'adoptopenjdk'  # Can also be 'zulu' or other distributions
+        distribution: 'temurin'  # Can also be 'zulu' or other distributions
 
     - name: Cache Maven dependencies
       uses: actions/cache@v2
