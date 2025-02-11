@@ -45,7 +45,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependencies>
+		
     <!-- JUnit 5 Dependency for testing -->
     <dependency>
         <groupId>org.junit.jupiter</groupId>
