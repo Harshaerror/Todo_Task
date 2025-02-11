@@ -14,23 +14,10 @@
     <name>ToDo_App</name>
     <description>Demo project for Spring Boot</description>
     <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
     <properties>
         <java.version>17</java.version>
     </properties>
 
-    <!-- Single Dependencies Block -->
     <dependencies>
         <!-- Spring Boot Dependencies -->
         <dependency>
@@ -47,8 +34,6 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
-        <!-- H2 Database -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -96,7 +81,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>  <!-- Make sure the version is up-to-date -->
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <!-- Ensure JUnit 5 is used -->
+                    <useModulePath>false</useModulePath>
+                    <includes>
+                        <include>**/*Test.java</include> <!-- Include test classes pattern -->
+                    </includes>
+                </configuration>
             </plugin>
 
             <!-- Lombok Annotation Processor -->
@@ -104,10 +96,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                         <useModulePath>false</useModulePath>
-                         <includes>
-                    <include>ToDoAppApplicationTests.java</include> <!-- Include test classes -->
-                </includes>
+                    <useModulePath>false</useModulePath> <!-- Disable module path for JDK 9 and above -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -121,17 +110,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                 <dependenciesToScan>
-                     <dependency>org.junit.jupiter:junit-jupiter-api</dependency> <!-- Ensure JUnit Jupiter is scanned -->
-                </dependenciesToScan>
-                </configuration>
             </plugin>
         </plugins>
     </build>
