@@ -104,6 +104,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+                         <useModulePath>false</useModulePath>
+                         <includes>
+                    <include>ToDoAppApplicationTests.java</include> <!-- Include test classes -->
+                </includes>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
